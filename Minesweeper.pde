@@ -48,8 +48,8 @@ public void draw ()
 public boolean isWon()
 {
     //your code here
-    /*
-    if (bombs.contains(buttons[r][c]) && bombs.isMarked())
+    /* get?
+    if (bombs.isMarked())
     {
         return true;
     }
@@ -108,7 +108,12 @@ public class MSButton
             marked =! marked;
             clicked = false;
         }
-
+        /*
+        if(isMarked() && !bombs.contains(this))
+        {
+            displayWinningMessage();
+        }
+*/
         else if(bombs.contains(this))
         {
             displayLosingMessage();
