@@ -22,7 +22,8 @@ void setup ()
             buttons[r][c] = new MSButton(r, c);
         }
     }
-    for(int i = 0; i < 50; i++)
+
+    for(int i = 0; i < 20; i++)
     {
         setBombs();
     }
@@ -36,7 +37,7 @@ public void setBombs()
     {
         bombs.add(buttons[r][c]);
     } 
-    System.out.println(r +","+ c);
+   // System.out.println(r +","+ c);
 }
 
 public void draw ()
@@ -47,17 +48,23 @@ public void draw ()
 }
 public boolean isWon()
 {
-    //your code here
-    /* get?
-    if (bombs.isMarked())
+    int dead = 0;
+    for(int i = 0; i < bombs.size(); i++)
+    {
+        if(bombs.get(i).isMarked())
+        {
+            dead++;
+        }
+    }
+    if(dead == bombs.size())
     {
         return true;
     }
-    */
     return false;
 }
 public void displayLosingMessage()
 {
+    background(0);
     stroke(255, 0, 0);
     text("You lose!", 250, 425);
     //stroke(0);
@@ -65,10 +72,10 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    //your code here
     stroke(255, 0, 0);
-    text("You win!", 250, 250);
-    stroke(0);
+    text("You win!", 250, 425);
+    //stroke(0);
+    noLoop();
 }
 
 public class MSButton
@@ -108,12 +115,7 @@ public class MSButton
             marked =! marked;
             clicked = false;
         }
-        /*
-        if(isMarked() && !bombs.contains(this))
-        {
-            displayWinningMessage();
-        }
-*/
+
         else if(bombs.contains(this))
         {
             displayLosingMessage();
@@ -168,13 +170,14 @@ public class MSButton
         rect(x, y, width, height);
         fill(45, 78, 0);
         text(label,x+width/2,y+height/2);
+        fill(200);
+        rect(0, 400, 400, 50);    //bottom rect
     }
     public void setLabel(String newLabel)
     {
         label = newLabel;
     }
-    public boolean isValid(int r, int c
-        )
+    public boolean isValid(int r, int c)
     {
         if(r >= 0 && r <= 19 && c >= 0 && c <= 19)
         {
