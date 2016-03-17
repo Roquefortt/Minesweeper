@@ -42,7 +42,7 @@ public void setBombs()
 
 public void draw ()
 {
-    background( 200 );
+    background( 220 );
     if(isWon())
         displayWinningMessage();
 }
@@ -70,7 +70,7 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    fill(255, 0, 0);
+    fill(0, 255, 0);
     text("You win!", 200, 425);
     noLoop();
 }
