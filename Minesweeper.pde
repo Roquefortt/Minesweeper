@@ -23,7 +23,7 @@ void setup ()
         }
     }
 
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < 50; i++)
     {
         setBombs();
     }
@@ -37,12 +37,12 @@ public void setBombs()
     {
         bombs.add(buttons[r][c]);
     } 
-   // System.out.println(r +","+ c);
+    //System.out.println(r +","+ c);
 }
 
 public void draw ()
 {
-    background( 0 );
+    background( 220 );
     if(isWon())
         displayWinningMessage();
 }
@@ -64,17 +64,14 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    background(0);
-    stroke(255, 0, 0);
-    text("You lose!", 250, 425);
-    //stroke(0);
-    //noLoop();
+    fill(255, 0, 0);
+    text("You lose!", 200, 425);
+    noLoop();
 }
 public void displayWinningMessage()
 {
-    stroke(255, 0, 0);
-    text("You win!", 250, 425);
-    //stroke(0);
+    fill(255, 0, 0);
+    text("You win!", 200, 425);
     noLoop();
 }
 
@@ -170,8 +167,6 @@ public class MSButton
         rect(x, y, width, height);
         fill(45, 78, 0);
         text(label,x+width/2,y+height/2);
-        fill(200);
-        rect(0, 400, 400, 50);    //bottom rect
     }
     public void setLabel(String newLabel)
     {
