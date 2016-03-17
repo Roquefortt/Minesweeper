@@ -70,7 +70,7 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    fill(0, 255, 0);
+    fill(255, 0, 0);
     text("You win!", 200, 425);
     noLoop();
 }
