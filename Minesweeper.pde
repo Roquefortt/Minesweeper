@@ -64,17 +64,14 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    background(0);
     stroke(255, 0, 0);
     text("You lose!", 250, 425);
-    //stroke(0);
-    //noLoop();
+    noLoop();
 }
 public void displayWinningMessage()
 {
-    stroke(255, 0, 0);
+    stroke(0, 255, 0);
     text("You win!", 250, 425);
-    //stroke(0);
     noLoop();
 }
 
