@@ -42,7 +42,7 @@ public void setBombs()
 
 public void draw ()
 {
-    background( 220 );
+    background( 200 );
     if(isWon())
         displayWinningMessage();
 }
