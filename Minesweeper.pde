@@ -23,7 +23,7 @@ void setup ()
         }
     }
 
-    for(int i = 0; i < 50; i++)
+    for(int i = 0; i < 20; i++)
     {
         setBombs();
     }
@@ -64,14 +64,27 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
+    int check = -1;
+
+    for(int i = 0; i < bombs.size(); i++)
+    {
+        if(!bombs.get(i).isMarked())
+        {
+           // bombs.get(i).
+            check++;
+        }
+    }    
+
+    fill(0);
+    text("Number of bombs left: "+check, 80, 405);
     fill(255, 0, 0);
     text("You lose!", 200, 425);
     noLoop();
 }
 public void displayWinningMessage()
 {
-    fill(0, 255, 0);
-    text("You win!", 200, 425);
+    fill(0, 150, 0);
+    text("All bombs are marked. You win!", 200, 425);
     noLoop();
 }
 
