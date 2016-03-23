@@ -64,27 +64,37 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    int check = -1;
-
-    for(int i = 0; i < bombs.size(); i++)
+    for(int r = 0; r < NUM_ROWS; r++)
     {
-        if(!bombs.get(i).isMarked())
+        for(int c = 0; c < NUM_COLS; c++)
         {
-           // bombs.get(i).
-            check++;
+            if(bombs.contains(buttons[r][c]) && !buttons[r][c].isClicked())
+            {
+                buttons[r][c].marked = false;
+                buttons[r][c].clicked = true;
+            }
         }
-    }    
-
-    fill(0);
-    text("Number of bombs left: "+check, 80, 405);
+    }
     fill(255, 0, 0);
     text("You lose!", 200, 425);
     noLoop();
+/*
+    for(int i =0; i < bombs.size(); i++)
+    {
+        if(!bombs.get(i).isMarked())
+        {
+            check++;
+        }
+    }
+
+    fill(0);
+    text("Number of bombs left: "+check, 80, 410);
+    */
 }
 public void displayWinningMessage()
 {
     fill(0, 150, 0);
-    text("All bombs are marked. You win!", 200, 425);
+    text("You win!", 200, 425);
     noLoop();
 }
 
