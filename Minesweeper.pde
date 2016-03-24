@@ -44,19 +44,21 @@ public void draw ()
 {
     background( 200 );
     if(isWon())
+    {
         displayWinningMessage();
+    }
 }
 public boolean isWon()
 {
-    int dead = 0;
+    int found = 0;
     for(int i = 0; i < bombs.size(); i++)
     {
         if(bombs.get(i).isMarked())
         {
-            dead++;
+            found++;
         }
     }
-    if(dead == bombs.size())
+    if(found == bombs.size())
     {
         return true;
     }
@@ -78,18 +80,6 @@ public void displayLosingMessage()
     fill(255, 0, 0);
     text("You lose!", 200, 425);
     noLoop();
-/*
-    for(int i =0; i < bombs.size(); i++)
-    {
-        if(!bombs.get(i).isMarked())
-        {
-            check++;
-        }
-    }
-
-    fill(0);
-    text("Number of bombs left: "+check, 80, 410);
-    */
 }
 public void displayWinningMessage()
 {
