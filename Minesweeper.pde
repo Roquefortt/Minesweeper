@@ -72,8 +72,8 @@ public void displayLosingMessage()
         {
             if(bombs.contains(buttons[r][c]) && !buttons[r][c].isClicked())
             {
-                buttons[r][c].marked = false;
-                buttons[r][c].clicked = true;
+                buttons[r][c].marked = true;
+                buttons[r][c].clicked = false;
             }
         }
     }
