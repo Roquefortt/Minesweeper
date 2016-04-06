@@ -118,6 +118,10 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
+        if(isWon())
+        {
+          return;
+        }
         if(keyPressed == true && !label.contains(""+countBombs(r, c)))
         {
             marked =! marked;
