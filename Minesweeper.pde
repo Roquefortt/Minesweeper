@@ -37,7 +37,6 @@ public void setBombs()
     {
         bombs.add(buttons[r][c]);
     } 
-    //System.out.println(r +","+ c);
 }
 
 public void draw ()
@@ -50,17 +49,19 @@ public void draw ()
 }
 public boolean isWon()
 {
-    for(int r=0; r < NUM_ROWS; r++)
+    int found = 0;
+    for(int i = 0; i < bombs.size(); i++)
     {
-        for(int c=0; c < NUM_COLS; c++)
+        if(bombs.get(i).isMarked())
         {
-            if(!buttons[r][c].isClicked() && !bombs.contains(buttons[r][c]))
-            {
-                return false;
-            }
+            found++;
         }
     }
-    return true;
+    if(found == bombs.size())
+    {
+        return true;
+    }
+    return false;
 }
 public void displayLosingMessage()
 {
@@ -72,7 +73,6 @@ public void displayLosingMessage()
             {
                 buttons[r][c].marked = false;
                 buttons[r][c].clicked = true;
-                buttons[r][c].setLabel(" ");
             }
         }
     }
@@ -119,14 +119,10 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(isWon())
-        {
-          return;
-        }
-        if(keyPressed == true && !label.contains(""+countBombs(r, c)))
+        if(keyPressed == true) //&& !label.contains(""+countBombs(r, c)))
         {
             marked =! marked;
-            clicked = false;
+            //clicked = false;
         }
 
         else if(bombs.contains(this))
