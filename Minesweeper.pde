@@ -68,10 +68,11 @@ public void displayLosingMessage()
     {
         for(int c = 0; c < NUM_COLS; c++)
         {
-            if(bombs.contains(buttons[r][c]))
+            if(bombs.contains(buttons[r][c]) && !buttons[r][c].isClicked())
             {
                 buttons[r][c].marked = false;
                 buttons[r][c].clicked = true;
+                buttons[r][c].setLabel(" ");
             }
         }
     }
