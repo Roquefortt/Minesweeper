@@ -134,7 +134,7 @@ public class MSButton
         if(keyPressed == true && !label.contains(""+countBombs(r, c)))
         {
             marked =! marked;
-            clicked = false;
+            //clicked = false;
         }
 
         else if(bombs.contains(this))
