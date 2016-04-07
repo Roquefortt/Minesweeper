@@ -65,14 +65,20 @@ public void displayLosingMessage()
         {
             if(bombs.contains(buttons[r][c]))// && !buttons[r][c].isClicked())
             {
-               // buttons[r][c].marked = false;
-                buttons[r][c].clicked = true;
+                buttons[r][c].setLabel("B");
+                //buttons[r][c].marked = false;
+                //buttons[r][c].clicked = true;
             }
         }
     }
     String lose = new String("You lose!");
     for(int i = 0; i < lose.length(); i++)
     {
+        buttons[10][i+5].clicked = true;
+        if(!bombs.contains(buttons[10][6+i]))
+        {
+            bombs.add(buttons[10][6+i]);
+        }
         buttons[10][6+i].setLabel(lose.substring(i,i+1));
     }
     noLoop();
@@ -82,6 +88,11 @@ public void displayWinningMessage()
     String win = new String("You win!");
     for(int i = 0; i < win.length(); i++)
     {
+        buttons[10][i+5].clicked = true;
+        if(!bombs.contains(buttons[10][6+i]))
+        {
+            bombs.add(buttons[10][6+i]);
+        }
         buttons[10][6+i].setLabel(win.substring(i,i+1));
     }
     noLoop();
@@ -119,10 +130,10 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(keyPressed == true) //&& !label.contains(""+countBombs(r, c)))
+        if(keyPressed == true && !label.contains(""+countBombs(r, c)))
         {
             marked =! marked;
-            //clicked = false;
+            clicked = false;
         }
 
         else if(bombs.contains(this))
@@ -169,7 +180,7 @@ public class MSButton
         if (marked)
             fill(88, 108, 59);
         else if( clicked && bombs.contains(this) ) 
-            fill(255, 0, 0);
+            fill(212, 106, 106);
         else if(clicked)
             fill(207, 220, 190);
         else 
