@@ -1,5 +1,4 @@
 
-
 import de.bezier.guido.*;
 private final static int NUM_ROWS = 20;
 private final static int NUM_COLS = 20;
@@ -8,7 +7,7 @@ private ArrayList <MSButton> bombs = new ArrayList <MSButton>(); //ArrayList of 
 
 void setup ()
 {
-    size(400, 450);
+    size(400, 400);
     textAlign(CENTER,CENTER);
     
     // make the manager
@@ -41,7 +40,6 @@ public void setBombs()
 
 public void draw ()
 {
-    background( 200 );
     if(isWon())
     {
         displayWinningMessage();
@@ -49,19 +47,15 @@ public void draw ()
 }
 public boolean isWon()
 {
-    int found = 0;
-    for(int i = 0; i < bombs.size(); i++)
-    {
-        if(bombs.get(i).isMarked())
-        {
-            found++;
-        }
-    }
-    if(found == bombs.size())
-    {
-        return true;
-    }
-    return false;
+  for (int r = 0; r < NUM_ROWS; r++)
+  {
+    for (int c = 0; c < NUM_COLS; c++)
+    {   
+        if(!bombs.contains(buttons[r][c]) && !buttons[r][c].isClicked())
+          return false;
+    }      
+  }
+  return true;
 }
 public void displayLosingMessage()
 {
@@ -69,21 +63,27 @@ public void displayLosingMessage()
     {
         for(int c = 0; c < NUM_COLS; c++)
         {
-            if(bombs.contains(buttons[r][c]) && !buttons[r][c].isClicked())
+            if(bombs.contains(buttons[r][c]))// && !buttons[r][c].isClicked())
             {
                 buttons[r][c].marked = false;
                 buttons[r][c].clicked = true;
             }
         }
     }
-    fill(255, 0, 0);
-    text("You lose!", 200, 425);
+    String lose = new String("You lose!");
+    for(int i = 0; i < lose.length(); i++)
+    {
+        buttons[10][6+i].setLabel(lose.substring(i,i+1));
+    }
     noLoop();
 }
 public void displayWinningMessage()
 {
-    fill(0, 150, 0);
-    text("You win!", 200, 425);
+    String win = new String("You win!");
+    for(int i = 0; i < win.length(); i++)
+    {
+        buttons[10][6+i].setLabel(win.substring(i,i+1));
+    }
     noLoop();
 }
 
@@ -175,7 +175,6 @@ public class MSButton
         else 
             fill(162, 180, 138);
 
-        stroke(114, 122, 101);
         rect(x, y, width, height);
         fill(45, 78, 0);
         text(label,x+width/2,y+height/2);
