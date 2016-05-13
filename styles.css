@@ -43,8 +43,7 @@ li a {
 li a:hover {
     background-color: #AAC1C1;
     transition-timing-function: ease-in-out;
-    text-decoration: line-through;
-    text-transform: uppercase;
+    transition: uppercase 4s, line-through 4s;
 }
 
 .active {
