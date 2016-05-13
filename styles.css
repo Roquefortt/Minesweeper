@@ -42,8 +42,8 @@ li a {
 
 li a:hover {
     background-color: #AAC1C1;
-    animation-duration: 2s;
     text-decoration: line-through;
+    animation-duration: text-decoration 3s;
 }
 
 .active {
