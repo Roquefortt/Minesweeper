@@ -42,9 +42,8 @@ li a {
 
 li a:hover {
     background-color: #AAC1C1;
-    transition-timing-function: ease-in-out;
-    transition: text-transform: uppercase, text-decoration: line-through;
-    position: absolute;
+    animation-duration: 2s;
+    text-decoration: line-through;
 }
 
 .active {
