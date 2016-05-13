@@ -1,7 +1,7 @@
 body {
-    background-color: rgb(200,200,200);
-    color: rgb(0,0,0);
-    font-family: "Open Sans", sans-serif;
+    background-color: #719595;
+    color: #1E5757;
+    font-family: Century Gothic, sans-serif;
     text-align: center;
 }
 
@@ -18,4 +18,32 @@ header {
 footer {
 	font-style: italic;
 	font-size: 90%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4F7E7E;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #AAC1C1;
+}
+
+.active {
+    background-color: #336A6A;
 }
