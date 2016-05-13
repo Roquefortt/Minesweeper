@@ -42,6 +42,7 @@ li a {
 
 li a:hover {
     background-color: #AAC1C1;
+    text-decoration: line-through;
 }
 
 .active {
