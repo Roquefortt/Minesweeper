@@ -180,16 +180,16 @@ public class MSButton
     public void draw () 
     {    
         if (marked)
-            fill(88, 108, 59);
+            fill(73, 101, 128);
         else if( clicked && bombs.contains(this) ) 
             fill(212, 106, 106);
         else if(clicked)
-            fill(207, 220, 190);
+            fill(26, 55, 84);
         else 
-            fill(162, 180, 138);
+            fill(114, 140, 166);
 
         rect(x, y, width, height);
-        fill(45, 78, 0);
+        fill(157, 173, 188);
         text(label,x+width/2,y+height/2);
     }
     public void setLabel(String newLabel)
